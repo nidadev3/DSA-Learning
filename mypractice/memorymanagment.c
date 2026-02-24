@@ -53,41 +53,21 @@
 
 //     return 0;
 // }
-//Heap 
+//Malloc and free example
 #include <stdio.h>
 #include <stdlib.h>
 
 int main() {
 
-    // Heap variable
-    int *ptr = (int*)malloc(sizeof(int));
-
-    if(ptr == NULL){
-        printf("Memory allocation failed\n");
-        return 1;
-    }
-
-    *ptr = 42;
-    printf("Value at ptr: %d\n", *ptr);
-
-    // Heap array
-    int *arr = (int*)malloc(5 * sizeof(int));
-
-    if(arr == NULL){
-        printf("Memory allocation failed\n");
-        return 1;
-    }
-
-    for(int i = 0; i < 5; i++){
-        arr[i] = i + 1;
-    }
-
-    for(int i = 0; i < 5; i++){
-        printf("%d ", arr[i]);
-    }
-
-    free(ptr);
-    free(arr);
-
+   int n;
+   printf("Enter number of elemnets:");
+   scanf("%d",&n);
+   int *arr=(int*) malloc(n*sizeof(int));
+   for(int i=0;i<n;i++){
+    arr[i]=i*i;
+   }
+   for (int i=0;i<n;i++){
+    printf("%d ",arr[i]);}
+        free(arr);
     return 0;
 }
