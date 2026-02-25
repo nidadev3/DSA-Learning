@@ -18,12 +18,13 @@
 // int main(){
 //     A(5);
 // }
-void f(int n){
-    if (n==0)
-        return;
-    printf("%d\n",n);
-    f(n-1);
-}
-int main(){
-    f(3);
-}
+// void f(int n){
+//     if (n==0)
+//         return;
+//     printf("%d\n",n);
+//     f(n-1);
+// }
+// int main(){
+//     f(3);
+// }
+ 
