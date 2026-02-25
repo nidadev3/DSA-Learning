@@ -73,16 +73,68 @@
 // }
 
 //Calloc Example 
+// #include <stdio.h>
+// #include <stdlib.h>
+// int main(){
+//     int n;
+//     printf("Enter number of elemnets:");
+//     scanf("%d",&n);
+//     int *arr=(int*) calloc(n,sizeof(int));
+    
+//     for (int i=0;i<n;i++){
+//      printf("%d ",arr[i]);}
+//          free(arr);
+//      return 0;  
+// }
+
+// realloc example
 #include <stdio.h>
 #include <stdlib.h>
+
 int main(){
+    int *arr;
     int n;
-    printf("Enter number of elemnets:");
-    scanf("%d",&n);
-    int *arr=(int*) calloc(n,sizeof(int));
+    int size = 2;
+    int count = 0;
+
+    arr = (int*) malloc(size * sizeof(int));
+    if(arr == NULL){
+        printf("Memory allocation failed");
+        return 1;
+    }
+
+    printf("Enter any number (-1 to stop):\n");
+
+    while(1){
+        scanf("%d",&n);
+
+        if(n == -1){
+            break;
+        }
+
+        if(count == size){
+            size *= 2;
+
+            int *temp = realloc(arr, size * sizeof(int));
+            if(temp == NULL){
+                printf("Memory reallocation failed");
+                free(arr);
+                return 1;
+            }
+
+            arr = temp;
+        }
+
+        arr[count] = n;
+        count++;
+    }
+
     
-    for (int i=0;i<n;i++){
-     printf("%d ",arr[i]);}
-         free(arr);
-     return 0;  
+    printf("Numbers entered: ");
+    for(int i = 0; i < count; i++){
+        printf("%d ", arr[i]);
+    }
+
+    free(arr);
+    return 0;
 }
