@@ -28,11 +28,21 @@
 //     f(3);
 // }
 
- int sum(int n ){
-    if (n==0)
-        return 0;
-    return n + sum(n-1);
- }
- int main (){
-    printf("%d\n",sum(4));
- }
+//  int sum(int n ){
+//     if (n==0)
+//         return 0;
+//     return n + sum(n-1);
+//  }
+//  int main (){
+//     printf("%d\n",sum(4));
+//  }
+
+
+int f(int n){
+   if (n<=1)
+        return 1;
+   return f(n-1)+f(n-2);
+}
+int main (){
+   printf("%d\n",f(4));
+}
