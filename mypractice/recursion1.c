@@ -67,14 +67,27 @@
 // }
 
 //Sum of Array 
-int SumArray(int arr[],int n){
+// int SumArray(int arr[],int n){
+//     if(n==0){
+//         return 0;
+//     }
+//     return arr[0]+SumArray(arr+1,n-1);
+// }
+// int main(){
+//     int arr[]={1,2,3,4,5};
+//     int n=sizeof(arr)/sizeof(arr[0]);
+//     printf("%d\n",SumArray(arr,n));
+// }
+
+//Sum of Array using tail recursion 
+int SumArray(int arr[],int n,int sum){
     if(n==0){
-        return 0;
+        return sum;
     }
-    return arr[0]+SumArray(arr+1,n-1);
+    return SumArray(arr+1,n-1,sum+arr[0]);
 }
 int main(){
     int arr[]={1,2,3,4,5};
     int n=sizeof(arr)/sizeof(arr[0]);
-    printf("%d\n",SumArray(arr,n));
+    printf("%d\n",SumArray(arr,n,0));
 }
