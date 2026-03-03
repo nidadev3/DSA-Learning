@@ -49,22 +49,19 @@
 
 
 
-int factorial(int n)
-{
-    // Base case (stopping condition)
-    if (n == 0 || n == 1)
+// i
+
+// Fibonacci series
+int fibonacci(int n){
+    if(n==0){
+        return 0;
+    }
+    if(n==1){
         return 1;
-
-    // Recursive case
-    return n * factorial(n - 1);
+     }
+     return fibonacci(n-1)+fibonacci(n-2);
 }
-
-int main()
-{
-    int num = 5;
-    int result = factorial(num);
-
-    printf("Factorial of %d is %d", num, result);
-
-    return 0;
+int main(){
+    int num=6;
+    printf("%d\n",fibonacci(num));
 }
