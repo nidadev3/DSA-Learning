@@ -156,21 +156,50 @@ using namespace std;
 //     }
 // }
 
+// struct Node{
+// int data;
+// Node*next;
+// };
+// int countlist(Node* head){
+//     int count=0;
+//     Node* temp=head;
+//     while(temp!=nullptr){
+//         count++;
+//         temp=temp->next;
+//     }
+//     return count;
+//    }
+
+// int main(){
+//     Node* head=new Node();
+//     head->data=10;
+//     head->next=nullptr;
+//     head->next=new Node();
+//     head->next->data=20;
+//     head->next->next=nullptr;
+//     head->next->next=new Node();
+//     head->next->next->data=30;
+//     head->next->next->next=nullptr;
+
+   
+//    cout<<"Number of nodes in the linked list: "<<countlist(head)<<endl;}
+
+// Searching for a value in the linked list
 struct Node{
-int data;
-Node*next;
+    int data;
+    Node*next;
 };
-int countlist(Node* head){
-    int count=0;
-    Node* temp=head;
+bool search(Node*head, int value){
+    Node *temp=head;
     while(temp!=nullptr){
-        count++;
+        if(temp->data==value){
+            return true;
+        }
         temp=temp->next;
     }
-    return count;
-   }
-
-int main(){
+    return false;
+}
+int main (){
     Node* head=new Node();
     head->data=10;
     head->next=nullptr;
@@ -181,5 +210,14 @@ int main(){
     head->next->next->data=30;
     head->next->next->next=nullptr;
 
-   
-   cout<<"Number of nodes in the linked list: "<<countlist(head)<<endl;}
+    int valueToSearch;
+
+    cout<<"Enter the value to search in the linked list: ";
+    cin>>valueToSearch;
+    if(search(head, valueToSearch)){
+        cout<<"Value "<<valueToSearch<<" found in the linked list."<<endl;
+    } else {
+        cout<<"Value "<<valueToSearch<<" not found in the linked list."<<endl;
+    }
+    return 0;
+}
