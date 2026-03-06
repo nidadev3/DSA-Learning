@@ -134,35 +134,24 @@ using namespace std;
 
 
 //Traversing through linked list
-struct Node {
-    int data;
-    Node* next;
+struct Node{
+int data;
+Node*next;
 };
+int main(){
+    Node* head=new Node();
+    head->data=10;
+    head->next=nullptr;
+    head->next=new Node();
+    head->next->data=20;
+    head->next->next=nullptr;
+    head->next->next=new Node();
+    head->next->next->data=30;
+    head->next->next->next=nullptr;
 
-int main() {
-
-    Node* head = new Node();
-    Node* second = new Node();
-    Node* third = new Node();
-
-    
-    head->data = 10;
-    head->next = second;
-
-    second->data = 20;
-    second->next = third;
-
-    third->data = 30;
-    third->next = nullptr;
-
-    Node* temp = head;   
-
-    cout << "Linked List elements are: ";
-
-    while (temp != nullptr) {
-        cout << temp->data << " ";
-        temp = temp->next;   
+    Node* temp=head;
+    while(temp!=nullptr){
+        cout<<"Node Data: "<<temp->data<<endl;
+        temp=temp->next;
     }
-
-    return 0;
 }
