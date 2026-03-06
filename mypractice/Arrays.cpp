@@ -1,18 +1,29 @@
 #include <iostream>
 using namespace std;
+// int main(){
+//     int n;
+//     cout<<"Enter the size of the array: ";
+//     cin>>n;
+//     int* arr=new int[n];
+//     cout<<"Enter "<<n<<" elements: ";
+//     for(int i=0;i<n;i++){
+//         cin>>arr[i];
+//     }
+//     cout<<"Array elements: ";
+//     for(int i=0;i<n;i++){
+//         cout<<arr[i]<<" ";
+//     }
+//     cout<<endl;
+//     return 0;
+// }
+
 int main(){
-    int n;
-    cout<<"Enter the size of the array: ";
-    cin>>n;
-    int* arr=new int[n];
-    cout<<"Enter "<<n<<" elements: ";
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
+    int arr[5]={4,3,-18,-19,0};
+    int smallest=0;
+    for(int i=0;i<5;i++){
+        if(arr[i]<smallest){
+            smallest=arr[i];
+        }   
     }
-    cout<<"Array elements: ";
-    for(int i=0;i<n;i++){
-        cout<<arr[i]<<" ";
-    }
-    cout<<endl;
-    return 0;
+    cout<<"Smallest element in the array: "<<smallest<<endl;
 }
