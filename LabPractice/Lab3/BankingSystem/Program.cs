@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankingSystem.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace BankingSystem
     {
         static void Main(string[] args)
         {
+            MenuUI menu = new MenuUI();
+            menu.Start();
         }
     }
 }
