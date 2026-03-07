@@ -25,6 +25,30 @@ namespace BankingSystem.Models
             this.transactions = new double[100];
             this.transactionCount = 0;
         }
+        public int GetAccountId()
+        {
+            return accountId;
+        }
+
+        public string GetName()
+        {
+            return name;
+        }
+
+        public double GetBalance()
+        {
+            return balance;
+        }
+
+        public uint GetPermissions()
+        {
+            return permissions;
+        }
+
+        public void SetBalance(double balance)
+        {
+            this.balance = balance;
+        }
         public abstract void Deposit(double amount);
         public abstract void Withdraw(double amount);
         public abstract void SaveToFile();
