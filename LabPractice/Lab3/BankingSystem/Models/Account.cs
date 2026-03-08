@@ -84,7 +84,7 @@ namespace BankingSystem.Models
             Console.WriteLine("Account ID: " + accountId);
             Console.WriteLine("Name: " + name);
             Console.WriteLine("Balance: " + balance);
-            Console.WriteLine("VIP: " + ((permissions & 8) != 0));
+           
         }
     }
 }
