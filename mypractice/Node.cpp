@@ -259,34 +259,121 @@ using namespace std;
 // }
 
 //Adding node at the end of the linked list
+// struct Node {
+//     int data;
+//     Node* next;
+// };
+// Node* addAtEnd(Node* head, int value){
+//     Node* newNode=new Node();
+//     newNode->data=value;
+//     newNode->next=nullptr;
+//     if(head==nullptr){
+//         head=newNode;
+//         return head;
+//     }
+//     Node* temp=head;
+//     while(temp->next!=nullptr){
+//         temp=temp->next;
+//     }
+//     temp->next=newNode;
+//     return head;
+// }
+// int main(){
+//     Node* head=nullptr;
+//     head=addAtEnd(head, 10);
+//     head=addAtEnd(head, 20);
+//     head=addAtEnd(head, 30);
+//     cout<<"Linked list: "<<endl;
+//     Node* temp=head;
+//     while(temp!=nullptr){
+//         cout<<"Node Data: "<<temp->data<<endl;
+//         temp=temp->next;
+//     }
+// }
+
 struct Node {
     int data;
     Node* next;
 };
-Node* addAtEnd(Node* head, int value){
-    Node* newNode=new Node();
-    newNode->data=value;
-    newNode->next=nullptr;
-    if(head==nullptr){
-        head=newNode;
+
+// Function to delete a node by value
+Node* deleteNode(Node* head, int value) {
+    // If list is empty
+    if (head == nullptr) return head;
+
+    // If head needs to be deleted
+    if (head->data == value) {
+        Node* temp = head;
+        head = head->next;
+        delete temp;
         return head;
     }
-    Node* temp=head;
-    while(temp->next!=nullptr){
-        temp=temp->next;
+
+    // Find the node before the node we want to delete
+    Node* current = head;
+    while (current->next != nullptr && current->next->data != value) {
+        current = current->next;
     }
-    temp->next=newNode;
+
+    // If node not found
+    if (current->next == nullptr) {
+        cout << "Value not found in the list." << endl;
+        return head;
+    }
+
+    // Delete the node
+    Node* temp = current->next;
+    current->next = current->next->next;
+    delete temp;
+
     return head;
 }
-int main(){
-    Node* head=nullptr;
-    head=addAtEnd(head, 10);
-    head=addAtEnd(head, 20);
-    head=addAtEnd(head, 30);
-    cout<<"Linked list: "<<endl;
-    Node* temp=head;
-    while(temp!=nullptr){
-        cout<<"Node Data: "<<temp->data<<endl;
-        temp=temp->next;
+
+// Function to add node at the end
+Node* addAtEnd(Node* head, int value) {
+    Node* newNode = new Node;
+    newNode->data = value;
+    newNode->next = nullptr;
+
+    if (head == nullptr) return newNode;
+
+    Node* temp = head;
+    while (temp->next != nullptr) {
+        temp = temp->next;
     }
+    temp->next = newNode;
+    return head;
+}
+
+// Function to print linked list
+void printList(Node* head) {
+    Node* temp = head;
+    while (temp != nullptr) {
+        cout << temp->data << " -> ";
+        temp = temp->next;
+    }
+    cout << "NULL" << endl;
+}
+
+// Main function
+int main() {
+    Node* head = nullptr;
+
+    // Adding nodes
+    head = addAtEnd(head, 10);
+    head = addAtEnd(head, 20);
+    head = addAtEnd(head, 30);
+    head = addAtEnd(head, 40);
+
+    cout << "Original List: ";
+    printList(head);
+
+    // Delete a node
+    int valueToDelete = 20;
+    head = deleteNode(head, valueToDelete);
+
+    cout << "After deleting " << valueToDelete << ": ";
+    printList(head);
+
+    return 0;
 }
