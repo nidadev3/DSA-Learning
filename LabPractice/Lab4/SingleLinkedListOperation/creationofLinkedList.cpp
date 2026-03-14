@@ -20,7 +20,7 @@ int main() {
     Node* head = nullptr;  
     Node* temp = nullptr;  
 
-    for(int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++){
         Node* newNode = new Node;   
         cout << "Enter data for node " << i + 1 << ": ";
         cin >> newNode->data;
