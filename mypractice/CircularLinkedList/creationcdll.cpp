@@ -5,6 +5,8 @@ struct Node{
     Node * prev;
     Node * next;
 };
+
+//Creation
 void creation(Node *&head){
     int n;
     cout<<"Enter the number of nodes you want in the list:";
@@ -30,4 +32,25 @@ void creation(Node *&head){
     }
     }
 
+}
+
+
+//Display
+
+void display(Node* head){
+    if(head == nullptr){
+        cout << "List is empty." << endl;
+        return;
+    }
+
+    Node* temp = head;
+    cout << "List is: ";
+
+    do {
+        cout << temp->data;
+        temp = temp->next;
+        if(temp != head) cout << "<->"; 
+    } while(temp != head);
+
+    cout << endl;
 }
