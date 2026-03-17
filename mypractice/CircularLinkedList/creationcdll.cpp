@@ -179,3 +179,19 @@ void deleteAtEnd(Node*& head)
 
     delete last;
 }
+
+//delete at any pos
+void deleteAtPosition(Node*& head,int pos)
+{
+    Node* temp = head;
+
+    for(int i=1;i<pos;i++)
+    {
+        temp = temp->next;
+    }
+
+    temp->prev->next = temp->next;
+    temp->next->prev = temp->prev;
+
+    delete temp;
+}
