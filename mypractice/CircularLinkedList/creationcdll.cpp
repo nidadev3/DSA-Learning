@@ -147,3 +147,20 @@ void insertAtPosition(Node*& head, int pos, int value) {
         head->prev = newnode;
     }
 }
+
+//delete at start
+void deleteAtBeginning(Node*& head)
+{
+    if(head == nullptr)
+    return;
+
+    Node* last = head->prev;
+    Node* temp = head;
+
+    head = head->next;
+
+    last->next = head;
+    head->prev = last;
+
+    delete temp;
+}
