@@ -195,3 +195,16 @@ void deleteAtPosition(Node*& head,int pos)
 
     delete temp;
 }
+
+//update operation
+void update(Node* head,int pos,int value)
+{
+    Node* temp = head;
+
+    for(int i=1;i<pos;i++)
+    {
+        temp = temp->next;
+    }
+
+    temp->data = value;
+}
