@@ -1,43 +1,64 @@
 #include<iostream>
 using namespace std;
-class stack{
-    private: 
+
+class stack {
+private:
     int arr[100];
     int top;
     int capacity;
 
-    public:
-    stack(int capacity)
-    {
-        this.capacity=capacity;
-        top=-1;
+public:
+    // Constructor
+    stack(int capacity) {
+        this->capacity = capacity;
+        top = -1;
     }
-   void push( int x){
-        if(top==capacity-1){
-            cout<<"The stack is overflow"<<endl;
+
+    // Push function
+    void push(int x) {
+        if (top == capacity - 1) {
+            cout << "The stack is overflow" << endl;
             return;
         }
-        top++;
-        arr[top]=x;
-        cout<<x<<"pushed to stack"<<endl;
-
+        arr[++top] = x;
+        cout << x << " pushed to stack" << endl;
     }
-    int pop(){
-        if(top==-1){
-             {
-            cout << "Underflow! Stack is empty.\n";
+
+    // Pop function
+    int pop() {
+        if (top == -1) {
+            cout << "Underflow! Stack is empty." << endl;
             return -1;
         }
-        return arr[top--]
-        }
-
+        return arr[top--];
     }
-     int peek() {
+
+    // Peek function
+    int peek() {
         if (top == -1) {
-            cout << "Stack is empty!\n";
+            cout << "Stack is empty!" << endl;
             return -1;
         }
         return arr[top];
     }
 
+    // Check if empty
+    bool isEmpty() {
+        return top == -1;
+    }
+};
+
+int main() {
+    stack s(5);
+
+    s.push(10);
+    s.push(20);
+    s.push(30);
+
+    cout << "Top is: " << s.peek() << endl;
+    cout << "Popped: " << s.pop() << endl;
+    cout << "Popped: " << s.pop() << endl;
+    cout << "Empty? " << s.isEmpty() << endl;
+
+    return 0;
 }
