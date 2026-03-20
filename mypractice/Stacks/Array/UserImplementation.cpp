@@ -12,6 +12,27 @@ class stack{
         arr=new int[capacity];
         top=-1
     }
+    //isFull function
+    bool isFull(){
+if(top==capcity-1){
+    cout<<"Stack is overflow"<<endl;
+    return 1;
+}
+else{
+    return 0;
+}
+
+    }
+    //isEmpty Function
+    bool isEmpty(){
+        if (top==-1){
+            cout<<"Stack is empty"<<endl;
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
     
 }
 int main (){
